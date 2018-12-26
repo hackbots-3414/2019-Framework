@@ -1,0 +1,12 @@
+private static CLASSNAME instance;
+
+public static CLASSNAME getInstance()
+		{
+			if(instance == null)
+			{
+				instance = new CLASSNAME();
+			}
+			
+			return instance;
+			
+	}

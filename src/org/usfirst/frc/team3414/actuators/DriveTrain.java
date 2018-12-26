@@ -4,8 +4,8 @@ import org.usfirst.frc.team3414.config.Config;
 
 public class DriveTrain {
 	private static DriveTrain instance;
-	MultiMotor left = new MultiMotor(Config.LEFT_FRONT,Config.LEFT_MIDDLE,Config.LEFT_REAR);
-	MultiMotor right = new MultiMotor(Config.RIGHT_FRONT,Config.RIGHT_MIDDLE,Config.RIGHT_REAR);
+	public MultiMotor left = new MultiMotor(Config.LEFT_FRONT,Config.LEFT_MIDDLE,Config.LEFT_REAR);
+	public MultiMotor right = new MultiMotor(Config.RIGHT_FRONT,Config.RIGHT_MIDDLE,Config.RIGHT_REAR);
 	
 
 	public void teleop(double leftSpeed, double rightSpeed) {

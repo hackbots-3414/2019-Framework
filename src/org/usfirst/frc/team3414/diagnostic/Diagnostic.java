@@ -6,7 +6,7 @@ import org.usfirst.frc.team3414.teleop.Teleop;
 public class Diagnostic {
 	public static void checkInput() {
 		DiagnosticServer.execute();
-		double speed;
+		double speed = 0;
 		switch(DiagnosticServer.getInput()) {
 		case "exit":
 			System.out.println("Diagnostic Stopped");
@@ -24,8 +24,15 @@ public class Diagnostic {
 		case "speed-1":
 			speed = -1;
 		case "runmotor1":
-			DriveTrain.getInstance()D
+			System.out.println("Running Motor 1 at: "+(speed*100)+"%.");
+			DriveTrain.getInstance().left.setFront(speed);
+		case "runmotor1":
+			System.out.println("Running Motor 1 at: "+(speed*100)+"%.");
+			DriveTrain.getInstance().left.setFront(speed);
 		}
+		}
+		
+		
 		
 		
 	}
