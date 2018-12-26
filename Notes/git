@@ -1,3 +1,11 @@
+Primary Commands:
+git add *
+git commit -m "message"
+git push origin master
+
+
+
+Attlasian Cheat Sheet below:
 Git task 	Notes 	Git commands
 Tell Git who you are 	Configure the author name and email address to be used with your commits.
 
