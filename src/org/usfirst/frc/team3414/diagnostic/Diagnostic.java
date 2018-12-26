@@ -4,6 +4,7 @@ import org.usfirst.frc.team3414.actuators.DriveTrain;
 import org.usfirst.frc.team3414.teleop.Teleop;
 
 public class Diagnostic {
+	static boolean driveEnabled = false;
 	public static void checkInput() {
 		double speed = 0;
 		DiagnosticServer.execute();
@@ -42,7 +43,6 @@ public class Diagnostic {
 		case "runmotor6":
 			System.out.println("Running Motor 6 at: "+(speed*100)+"%.");
 			DriveTrain.getInstance().left.setRear(speed);
-		
 		case "encoderleft":
 			System.out.println("Gettting Encoder on Motor 1");
 			DriveTrain.getInstance().left.getEncoder();
@@ -53,6 +53,12 @@ public class Diagnostic {
 			System.out.println("Resetting Encoders");
 			DriveTrain.getInstance().left.resetEncoder();
 			DriveTrain.getInstance().right.resetEncoder();
+		case "enabledrive":
+			System.out.println("Enabling drivetrain");
+			driveEnabled = true;
+		case "disabledrive":
+			System.out.println("Disabling drivetrain");
+			driveEnabled = false;
 		}
 		}
 		
@@ -68,7 +74,14 @@ public class Diagnostic {
 			return true;
 		}
 	}
-	public static void teleop() {
-		Teleop.getInstance().drive();
+
+
+
+
+
+	public static void runTeleop() {
+		if(driveEnabled) {
+			Teleop.getInstance().drive();
+		}
 	}
 }
