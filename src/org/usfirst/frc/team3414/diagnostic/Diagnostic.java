@@ -64,6 +64,7 @@ public class Diagnostic {
 		case "disabledrive":
 			System.out.println("Disabling drivetrain");
 			driveEnabled = false;
+			reset();
 		case "record":
 			recording = true;
 		case "stoprecord":
