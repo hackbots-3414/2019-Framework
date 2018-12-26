@@ -71,7 +71,6 @@ public class DiagnosticServer {
 		}
 	}
 	public static String getInput() {
-		execute();
 		return userinput;
 	}
 }

@@ -5,9 +5,10 @@ import org.usfirst.frc.team3414.teleop.Teleop;
 
 public class Diagnostic {
 	public static void checkInput() {
-		DiagnosticServer.execute();
 		double speed = 0;
+		DiagnosticServer.execute();
 		switch(DiagnosticServer.getInput()) {
+		
 		case "exit":
 			System.out.println("Diagnostic Stopped");
 		case "stop":
@@ -58,9 +59,9 @@ public class Diagnostic {
 		
 		
 		
-	}
+	
 	public static boolean isRunning() {
-		if((DiagnosticServer.getInput() == null )|| (DiagnosticServer.getInput()=="exit")) {
+		if((DiagnosticServer.getInput() == null )|| (DiagnosticServer.getInput()=="exit") || (DiagnosticServer.getInput()=="stop")) {
 			return false;
 		}
 		else {
