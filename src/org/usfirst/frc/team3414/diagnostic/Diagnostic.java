@@ -6,10 +6,13 @@ import org.usfirst.frc.team3414.teleop.Teleop;
 public class Diagnostic {
 	static boolean driveEnabled = false;
 	static double speed = 0;
+	static boolean recording;
+	public static int position;
+
 	public static void checkInput() {
 		DiagnosticServer.execute();
-		switch(DiagnosticServer.getInput()) {
-		
+		switch (DiagnosticServer.getInput()) {
+
 		case "exit":
 			System.out.println("Diagnostic Stopped");
 			reset();
@@ -28,22 +31,22 @@ public class Diagnostic {
 		case "speed-1":
 			speed = -1;
 		case "runmotor1":
-			System.out.println("Running Motor 1 at: "+(speed*100)+"%.");
+			System.out.println("Running Motor 1 at: " + (speed * 100) + "%.");
 			DriveTrain.getInstance().left.setFront(speed);
 		case "runmotor2":
-			System.out.println("Running Motor 2 at: "+(speed*100)+"%.");
+			System.out.println("Running Motor 2 at: " + (speed * 100) + "%.");
 			DriveTrain.getInstance().left.setMiddle(speed);
 		case "runmotor3":
-			System.out.println("Running Motor 3 at: "+(speed*100)+"%.");
+			System.out.println("Running Motor 3 at: " + (speed * 100) + "%.");
 			DriveTrain.getInstance().left.setRear(speed);
 		case "runmotor4":
-			System.out.println("Running Motor 4 at: "+(speed*100)+"%.");
+			System.out.println("Running Motor 4 at: " + (speed * 100) + "%.");
 			DriveTrain.getInstance().right.setFront(speed);
 		case "runmotor5":
-			System.out.println("Running Motor 5 at: "+(speed*100)+"%.");
+			System.out.println("Running Motor 5 at: " + (speed * 100) + "%.");
 			DriveTrain.getInstance().right.setMiddle(speed);
 		case "runmotor6":
-			System.out.println("Running Motor 6 at: "+(speed*100)+"%.");
+			System.out.println("Running Motor 6 at: " + (speed * 100) + "%.");
 			DriveTrain.getInstance().left.setRear(speed);
 		case "encoderleft":
 			System.out.println("Gettting Encoder on Motor 1");
@@ -61,21 +64,30 @@ public class Diagnostic {
 		case "disabledrive":
 			System.out.println("Disabling drivetrain");
 			driveEnabled = false;
+		case "record":
+			recording = true;
+		case "stoprecord":
+			recording = false;
+		case "pos1":
+			System.out.println("Position 1");
+			position = 1;
+		case "pos2":
+			position = 2;
+		case "pos3":
+			System.out.println("Position 3");
+			position = 3;
 		}
-		}
-		
-		
-		
-		
-	
+	}
+
 	public static boolean isRunning() {
-		if((DiagnosticServer.getInput() == null )|| (DiagnosticServer.getInput()=="exit") || (DiagnosticServer.getInput()=="stop")) {
+		if ((DiagnosticServer.getInput() == null) || (DiagnosticServer.getInput() == "exit")
+				|| (DiagnosticServer.getInput() == "stop")) {
 			return false;
-		}
-		else {
+		} else {
 			return true;
 		}
 	}
+
 	public static void reset() {
 		speed = 0;
 		DriveTrain.getInstance().left.setFront(0);
@@ -87,11 +99,13 @@ public class Diagnostic {
 
 	}
 
-
-
 	public static void runTeleop() {
-		if(driveEnabled) {
+		if (driveEnabled) {
 			Teleop.getInstance().drive();
 		}
+	}
+
+	public static boolean isRecording() {
+		return recording;
 	}
 }
