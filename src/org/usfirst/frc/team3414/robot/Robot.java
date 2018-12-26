@@ -80,7 +80,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		if(Diagnostic.isRunning()) {
-			
+			Diagnostic.runTeleop();
 		}
 		else {
 			Teleop.getInstance().drive();
