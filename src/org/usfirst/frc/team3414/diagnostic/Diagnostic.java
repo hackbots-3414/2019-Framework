@@ -26,9 +26,32 @@ public class Diagnostic {
 		case "runmotor1":
 			System.out.println("Running Motor 1 at: "+(speed*100)+"%.");
 			DriveTrain.getInstance().left.setFront(speed);
-		case "runmotor1":
-			System.out.println("Running Motor 1 at: "+(speed*100)+"%.");
-			DriveTrain.getInstance().left.setFront(speed);
+		case "runmotor2":
+			System.out.println("Running Motor 2 at: "+(speed*100)+"%.");
+			DriveTrain.getInstance().left.setMiddle(speed);
+		case "runmotor3":
+			System.out.println("Running Motor 3 at: "+(speed*100)+"%.");
+			DriveTrain.getInstance().left.setRear(speed);
+		case "runmotor4":
+			System.out.println("Running Motor 4 at: "+(speed*100)+"%.");
+			DriveTrain.getInstance().right.setFront(speed);
+		case "runmotor5":
+			System.out.println("Running Motor 5 at: "+(speed*100)+"%.");
+			DriveTrain.getInstance().right.setMiddle(speed);
+		case "runmotor6":
+			System.out.println("Running Motor 6 at: "+(speed*100)+"%.");
+			DriveTrain.getInstance().left.setRear(speed);
+		
+		case "encoderleft":
+			System.out.println("Gettting Encoder on Motor 1");
+			DriveTrain.getInstance().left.getEncoder();
+		case "encoderRight":
+			System.out.println("Gettting Encoder on Motor 4");
+			DriveTrain.getInstance().right.getEncoder();
+		case "encoderReset":
+			System.out.println("Resetting Encoders");
+			DriveTrain.getInstance().left.resetEncoder();
+			DriveTrain.getInstance().right.resetEncoder();
 		}
 		}
 		
