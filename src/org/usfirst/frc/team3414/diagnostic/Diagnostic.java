@@ -156,13 +156,17 @@ public class Diagnostic {
 	}
 	public static void reset() {
 		speed = 0;
+		driveEnabled = false;
 		DriveTrain.getInstance().left.setFront(0);
 		DriveTrain.getInstance().left.setMiddle(0);
 		DriveTrain.getInstance().left.setRear(0);
 		DriveTrain.getInstance().right.setFront(0);
 		DriveTrain.getInstance().right.setMiddle(0);
 		DriveTrain.getInstance().right.setRear(0);
-
+		DriveTrain.getInstance().left.resetEncoder();
+		DriveTrain.getInstance().right.resetEncoder();
+		recording = false;
+		newController = false;
 	}
 
 	public static void runTeleop() {
