@@ -73,6 +73,21 @@ public class DiagnosticServer {
 	public static String getInput() {
 		return userinput;
 	}
+	public static void sendMessage(String message) {
+		try {
+			socket = serverSocket.accept();
+			OutputStream os = socket.getOutputStream();
+			OutputStreamWriter osw = new OutputStreamWriter(os);
+			BufferedWriter bw = new BufferedWriter(osw);
+			bw.write(message);
+			System.out.println("Message sent to the client is " + message);
+			bw.flush();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 }
 	/*
 	public static void executeLoop(String[] args) { //DON'T USE

@@ -9,79 +9,135 @@ public class Diagnostic {
 	static boolean recording;
 	public static int position;
 	public static boolean newController = false;
+	public static String message;
 	public static void checkInput() {
 		DiagnosticServer.execute();
 		switch (DiagnosticServer.getInput()) {
 
 		case "exit":
-			System.out.println("Diagnostic Stopped");
+			message = "Diagnostic Stopped";
+			System.out.println(message);
 			reset();
+			DiagnosticServer.sendMessage(message);
 		case "stop":
-			System.out.println("Diagnostic Stopped");
+			message = "Diagnostic Stopped";
+			System.out.println(message);
 			reset();
+			DiagnosticServer.sendMessage(message);
 		case "kill":
-			System.out.println("Killing Robot");
+			message = "Killing Robot";
+			System.out.println(message);
+			DiagnosticServer.sendMessage(message);
 			System.exit(0);
 		case "runmotor":
-			System.out.println("Use the command runmotor1, runmotor2");
+			message = "Use the command runmotor1, runmotor2";
+			System.out.println(message);
+			DiagnosticServer.sendMessage(message);
 		case "speed1":
 			speed = 1;
+			message = ("speed is "+speed);
+			System.out.println(message);
+			DiagnosticServer.sendMessage(message);
 		case "speed0":
 			speed = 0;
+			message = ("speed is "+speed);
+			System.out.println(message);
+			DiagnosticServer.sendMessage(message);
 		case "speed-1":
 			speed = -1;
+			message = ("speed is "+speed);
+			System.out.println(message);
+			DiagnosticServer.sendMessage(message);
 		case "runmotor1":
-			System.out.println("Running Motor 1 at: " + (speed * 100) + "%.");
+			message = "Running Motor 1 at: " + (speed * 100) + "%.";
+			System.out.println(message);
 			DriveTrain.getInstance().left.setFront(speed);
+			DiagnosticServer.sendMessage(message);
 		case "runmotor2":
-			System.out.println("Running Motor 2 at: " + (speed * 100) + "%.");
+			message = "Running Motor 2 at: " + (speed * 100) + "%.";
+			System.out.println(message);
 			DriveTrain.getInstance().left.setMiddle(speed);
+			DiagnosticServer.sendMessage(message);
 		case "runmotor3":
-			System.out.println("Running Motor 3 at: " + (speed * 100) + "%.");
+			message = "Running Motor 3 at: " + (speed * 100) + "%.";
+			System.out.println(message);
 			DriveTrain.getInstance().left.setRear(speed);
+			DiagnosticServer.sendMessage(message);
 		case "runmotor4":
-			System.out.println("Running Motor 4 at: " + (speed * 100) + "%.");
+			message = "Running Motor 4 at: " + (speed * 100) + "%.";
+			System.out.println(message);
 			DriveTrain.getInstance().right.setFront(speed);
+			DiagnosticServer.sendMessage(message);
 		case "runmotor5":
-			System.out.println("Running Motor 5 at: " + (speed * 100) + "%.");
+			message = "Running Motor 5 at: " + (speed * 100) + "%.";
+			System.out.println(message);
 			DriveTrain.getInstance().right.setMiddle(speed);
+			DiagnosticServer.sendMessage(message);
 		case "runmotor6":
-			System.out.println("Running Motor 6 at: " + (speed * 100) + "%.");
+			message = "Running Motor 6 at: " + (speed * 100) + "%.";
+			System.out.println(message);
 			DriveTrain.getInstance().left.setRear(speed);
+			DiagnosticServer.sendMessage(message);
 		case "encoderleft":
-			System.out.println("Gettting Encoder on Motor 1");
+			message = "Gettting Encoder on Motor 1";
+			System.out.println(message);
 			DriveTrain.getInstance().left.getEncoder();
+			DiagnosticServer.sendMessage(message);
 		case "encoderRight":
-			System.out.println("Gettting Encoder on Motor 4");
+			message = "Gettting Encoder on Motor 4";
+			System.out.println(message);
 			DriveTrain.getInstance().right.getEncoder();
+			DiagnosticServer.sendMessage(message);
 		case "encoderReset":
-			System.out.println("Resetting Encoders");
+			message = "Resetting Encoders";
+			System.out.println(message);
 			DriveTrain.getInstance().left.resetEncoder();
 			DriveTrain.getInstance().right.resetEncoder();
+			DiagnosticServer.sendMessage(message);
 		case "enabledrive":
-			System.out.println("Enabling drivetrain");
+			message = "Enabling drivetrain";
+			System.out.println(message);
 			driveEnabled = true;
+			DiagnosticServer.sendMessage(message);
 		case "disabledrive":
-			System.out.println("Disabling drivetrain");
+			message = "Disabling drivetrain";
+			System.out.println(message);
 			driveEnabled = false;
 			reset();
+			DiagnosticServer.sendMessage(message);
 		case "record":
+			message = "Recording";
+			System.out.println(message);
 			recording = true;
+			DiagnosticServer.sendMessage(message);
 		case "stoprecord":
+			message = "Recording Stopped";
+			System.out.println(message);
 			recording = false;
+			DiagnosticServer.sendMessage(message);
 		case "pos1":
-			System.out.println("Position 1");
 			position = 1;
+			message =  "Position "+position;
+			System.out.println(message);
+			DiagnosticServer.sendMessage(message);
 		case "pos2":
 			position = 2;
+			message =  "Position "+position;
+			System.out.println(message);
+			DiagnosticServer.sendMessage(message);
 		case "pos3":
-			System.out.println("Position 3");
 			position = 3;
+			message =  "Position "+position;
+			System.out.println(message);
+			DiagnosticServer.sendMessage(message);
 		case "tradcontrol":
-			System.out.println("Got it, using traditional controls");
+			message = "Got it, using traditional controls";
+			System.out.println(message);
 			newController = false;
+			DiagnosticServer.sendMessage(message);
 		case "newcontrol":
-			System.out.println("Got it, using new controls");
+			message = "Got it, using new controls";
+			System.out.println(message);
 			newController = true;
 			}
 		

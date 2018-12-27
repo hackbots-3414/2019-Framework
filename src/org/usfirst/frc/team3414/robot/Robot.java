@@ -7,8 +7,6 @@
 
 package org.usfirst.frc.team3414.robot;
 
-import org.usfirst.frc.team3414.actuators.DriveTrain;
-import org.usfirst.frc.team3414.actuators.MultiMotor;
 import org.usfirst.frc.team3414.diagnostic.Diagnostic;
 import org.usfirst.frc.team3414.teleop.Teleop;
 
@@ -73,7 +71,8 @@ public class Robot extends IterativeRobot {
 				break;
 		}
 	}
-
+	public void teleopInit() {
+	}
 	/**
 	 * This function is called periodically during operator control.
 	 */
