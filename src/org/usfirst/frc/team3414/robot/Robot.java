@@ -53,7 +53,7 @@ public class Robot extends IterativeRobot {
 		m_autoSelected = m_chooser.getSelected();
 		// autoSelected = SmartDashboard.getString("Auto Selector",
 		// defaultAuto);
-		System.out.println("Auto selected: " + m_autoSelected);
+		System.out.println("Auto selected " + m_autoSelected);
 	}
 
 	/**
@@ -62,11 +62,11 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		switch (m_autoSelected) {
-			case kCustomAuto:
+			if(DiagnosticServer.getInput().equalsIgnoreCase( kCustomAuto
 				// Put custom auto code here
 				break;
-			case kDefaultAuto:
-			default:
+			if(DiagnosticServer.getInput().equalsIgnoreCase( kDefaultAuto
+			default
 				// Put default auto code here
 				break;
 		}

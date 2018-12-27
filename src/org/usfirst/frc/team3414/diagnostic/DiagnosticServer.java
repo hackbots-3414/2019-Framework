@@ -11,7 +11,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class DiagnosticServer {
-	//Special Thanks to https://www.careerbless.com/samplecodes/java/beginners/socket/SocketBasic1.php
+	//Special Thanks to https//www.careerbless.com/samplecodes/java/beginners/socket/SocketBasic1.php
 	private static Socket socket;
 	static String userinput;
 	static ServerSocket serverSocket;
@@ -41,7 +41,7 @@ public class DiagnosticServer {
 			BufferedReader br = new BufferedReader(isr);
 			String input = br.readLine();
 			System.out.println("Message received from client is " + input);
-			input = input.toLowerCase();
+			//input = input.toLowerif(DiagnosticServer.getInput().equalsIgnoreCase(();
 			userinput = input;
 			String returnMessage = input;
 
@@ -108,7 +108,7 @@ public class DiagnosticServer {
 			BufferedReader br = new BufferedReader(isr);
 			String input = br.readLine();
 			System.out.println("Message received from client is " + input);
-			input = input.toLowerCase();
+			input = input.toLowerif(DiagnosticServer.getInput().equalsIgnoreCase(();
 			String returnMessage = input;
 
 			
