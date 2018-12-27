@@ -4,8 +4,16 @@ import org.usfirst.frc.team3414.config.Config;
 
 import edu.wpi.first.wpilibj.Joystick;
 
-public class Controller {
-	Joystick pad = new Joystick(Config.CONTROLLER_CHANNEL);
+public class TraditionalController {
+	//Normal Controllers with Normal Mappings. There is a difference.
+	
+	Joystick pad;
+	public void init(){
+		pad = new Joystick(Config.CONTROLLER_CHANNEL);
+		}
+		public void closeOut() {
+			pad = null;
+		}
 	public boolean getAButton() {
 		return pad.getRawButton(1);
 
@@ -33,7 +41,6 @@ public class Controller {
 
 	public boolean getRBButton() {
 		return false;
-
 	}
 
 	public boolean getLT() {
@@ -48,5 +55,18 @@ public class Controller {
 
 	public double getPov() {
 		return 0;
+	}
+
+private static TraditionalController instance;
+
+public static TraditionalController getInstance()
+		{
+			if(instance == null)
+			{
+				instance = new TraditionalController();
+			}
+			
+			return instance;
+			
 	}
 }

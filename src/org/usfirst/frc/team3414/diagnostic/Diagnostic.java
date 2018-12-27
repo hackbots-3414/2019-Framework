@@ -8,7 +8,7 @@ public class Diagnostic {
 	static double speed = 0;
 	static boolean recording;
 	public static int position;
-
+	public static boolean newController = false;
 	public static void checkInput() {
 		DiagnosticServer.execute();
 		switch (DiagnosticServer.getInput()) {
@@ -77,7 +77,14 @@ public class Diagnostic {
 		case "pos3":
 			System.out.println("Position 3");
 			position = 3;
-		}
+		case "tradcontrol":
+			System.out.println("Got it, using traditional controls");
+			newController = false;
+		case "newcontrol":
+			System.out.println("Got it, using new controls");
+			newController = true;
+			}
+		
 	}
 
 	public static boolean isRunning() {
@@ -88,7 +95,9 @@ public class Diagnostic {
 			return true;
 		}
 	}
-
+	public static boolean isNewControls() {
+		return newController;
+	}
 	public static void reset() {
 		speed = 0;
 		DriveTrain.getInstance().left.setFront(0);
