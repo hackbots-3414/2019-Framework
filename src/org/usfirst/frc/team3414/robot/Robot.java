@@ -60,17 +60,7 @@ public class Robot extends IterativeRobot {
 	 * This function is called periodically during autonomous.
 	 */
 	@Override
-	public void autonomousPeriodic() {
-		switch (m_autoSelected) {
-			if(DiagnosticServer.getInput().equalsIgnoreCase( kCustomAuto
-				// Put custom auto code here
-				break;
-			if(DiagnosticServer.getInput().equalsIgnoreCase( kDefaultAuto
-			default
-				// Put default auto code here
-				break;
-		}
-	}
+	
 	public void teleopInit() {
 	}
 	/**
